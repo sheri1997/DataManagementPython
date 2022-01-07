@@ -65,10 +65,26 @@ class DataManagement:
 
     @staticmethod
     def duplicate_values():
+        """
+        Here We are finding the duplicated values in a particular column
+        :return: will return boolean series denoting duplicated values.
+        """
         instance = DataManagement()
         dataframe = instance.concat_csv()
         duplicate = dataframe[dataframe.duplicated('EmployeeID')]
         return duplicate
+
+    @staticmethod
+    def cardinality_values():
+        """
+        Here We are finding the cardinality of the rows and columns of the dataframe.
+        :return: will return all the unique values inside the dataframe.
+        """
+        instance = DataManagement()
+        dataframe = instance.concat_csv()
+        cardinality_row = dataframe.nunique(axis=0, dropna=True)
+        cardinality_column = dataframe.nunique(axis=1, dropna=True)
+        return cardinality_row, cardinality_column
 
 
 
