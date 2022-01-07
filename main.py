@@ -63,4 +63,12 @@ class DataManagement:
         barplot_graph = sb.barplot(x= 'age', y='EmployeeID', data=dataframe)
         print(barplot_graph)
 
+    @staticmethod
+    def duplicate_values():
+        instance = DataManagement()
+        dataframe = instance.concat_csv()
+        duplicate = dataframe[dataframe.duplicated('EmployeeID')]
+        return duplicate
+
+
 
