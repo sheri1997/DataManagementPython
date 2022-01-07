@@ -59,7 +59,8 @@ class DataManagement:
         gender_graph = sb.countplot('gender_full', data=dataframe)
         print(gender_graph)
         catplot_graph = sb.catplot(x='BUSINESS_UNIT', y='gender_full', data=dataframe)
-        return catplot_graph
-
+        print(catplot_graph)
+        barplot_graph = sb.barplot(x= 'age', y='EmployeeID', data=dataframe)
+        print(barplot_graph)
 
 
