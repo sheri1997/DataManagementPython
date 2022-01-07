@@ -1,5 +1,6 @@
 import pandas as pd
-import numpy as np
+from matplotlib import pyplot as plt
+import seaborn as sb
 
 
 class DataManagement:
@@ -38,6 +39,27 @@ class DataManagement:
         print(dataframe['EmployeeID'])
         print(dataframe[['EmployeeID', 'STATUS']])
 
+    @staticmethod
+    def matplot_graph_plot():
+        """
+        Here We are Plotting the graph for various tables of the graph
+        :return: will return different graphs
+        """
+        instance = DataManagement()
+        dataframe = instance.concat_csv()
+        employee_data = dataframe['EmployeeID']
+        status_year_data = dataframe['STATUS_YEAR']
+        scatter_plot = plt.scatter(employee_data, status_year_data)
+        return scatter_plot
 
-ss = DataManagement.operations_csv()
-print(ss)
+    @staticmethod
+    def seaborn_graph_plot():
+        instance = DataManagement()
+        dataframe = instance.concat_csv()
+        gender_graph = sb.countplot('gender_full', data=dataframe)
+        print(gender_graph)
+        catplot_graph = sb.catplot(x='BUSINESS_UNIT', y='gender_full', data=dataframe)
+        return catplot_graph
+
+
+
