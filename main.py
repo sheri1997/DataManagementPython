@@ -69,3 +69,4 @@ class DataManagement:
         print(catplot_graph)
         barplot_graph = sb.barplot(x='age', y='EmployeeID', data=dataframe)
         print(barplot_graph)
+
