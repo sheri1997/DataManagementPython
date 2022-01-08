@@ -78,6 +78,8 @@ class DataManagement:
     def cardinality_values():
         """
         Here We are finding the cardinality of the rows and columns of the dataframe.
+        Once for row wise and the other for column wise.
+        In both the case dropna is used so that if any null values found then it will drop them.
         :return: will return all the unique values inside the dataframe.
         """
         instance = DataManagement()
