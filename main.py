@@ -49,42 +49,24 @@ class DataManagement:
         dataframe = instance.concat_csv()
         employee_data = dataframe['EmployeeID']
         status_year_data = dataframe['STATUS_YEAR']
+        plt.figure(figsize=(15, 15))
         scatter_plot = plt.scatter(employee_data, status_year_data)
         return scatter_plot
 
     @staticmethod
     def seaborn_graph_plot():
+        """
+        Here we are plotting the graph by using seaborn library.
+        setting the figure size.
+        :return: will return the plotted graph.
+        """
         instance = DataManagement()
         dataframe = instance.concat_csv()
+        plt.figure(figsize=(15, 15))
         gender_graph = sb.countplot('gender_full', data=dataframe)
         print(gender_graph)
         catplot_graph = sb.catplot(x='BUSINESS_UNIT', y='gender_full', data=dataframe)
         print(catplot_graph)
-        barplot_graph = sb.barplot(x= 'age', y='EmployeeID', data=dataframe)
+        barplot_graph = sb.barplot(x='age', y='EmployeeID', data=dataframe)
         print(barplot_graph)
-
-    @staticmethod
-    def duplicate_values():
-        """
-        Here We are finding the duplicated values in a particular column
-        :return: will return boolean series denoting duplicated values.
-        """
-        instance = DataManagement()
-        dataframe = instance.concat_csv()
-        duplicate = dataframe[dataframe.duplicated('EmployeeID')]
-        return duplicate
-
-    @staticmethod
-    def cardinality_values():
-        """
-        Here We are finding the cardinality of the rows and columns of the dataframe.
-        :return: will return all the unique values inside the dataframe.
-        """
-        instance = DataManagement()
-        dataframe = instance.concat_csv()
-        cardinality_row = dataframe.nunique(axis=0, dropna=True)
-        cardinality_column = dataframe.nunique(axis=1, dropna=True)
-        return cardinality_row, cardinality_column
-
-
 
