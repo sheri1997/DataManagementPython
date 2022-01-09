@@ -56,6 +56,8 @@ class DataManagement:
     @staticmethod
     def seaborn_graph_plot():
         """
+        Here We are plotting the graph using Seaborn Library
+        :return: will return the plotted graphs.
         Here we are plotting the graph by using seaborn library.
         setting the figure size.
         :return: will return the plotted graph.
@@ -71,6 +73,32 @@ class DataManagement:
         print(barplot_graph)
 
         
+    @staticmethod
+    def variance_values():
+        """
+        Here We will be calculating the variance of the dataframe.
+        using the var keyword will find all the variance of all the integer columns.
+        :return: will return the variance
+        """
+        instance = DataManagement()
+        dataframe = instance.concat_csv()
+        variance = dataframe.var()
+        return variance
+
+    @staticmethod
+    def feature_variability_values():
+        """
+        Here We are calculating mean, median, mode, standard deviation of the dataframe.
+        :return: will return the above values.
+        """
+        instance = DataManagement()
+        dataframe = instance.concat_csv()
+        mean = dataframe.mean(axis=None)
+        median = dataframe.median(axis=None)
+        standard_deviation_0 = dataframe.std(axis=None, ddof=0)
+        standard_deviation_1 = dataframe.std(axis=None, ddof=1)
+        return mean, median, standard_deviation_0, standard_deviation_1
+
     @staticmethod
     def duplicate_values():
         """
@@ -95,5 +123,4 @@ class DataManagement:
         cardinality_row = dataframe.nunique(axis=0, dropna=True)
         cardinality_column = dataframe.nunique(axis=1, dropna=True)
         return cardinality_row, cardinality_column
-
 
