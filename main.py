@@ -49,6 +49,7 @@ class DataManagement:
         dataframe = instance.concat_csv()
         employee_data = dataframe['EmployeeID']
         status_year_data = dataframe['STATUS_YEAR']
+        plt.figure(figsize=(15, 15))
         scatter_plot = plt.scatter(employee_data, status_year_data)
         return scatter_plot
 
@@ -57,9 +58,13 @@ class DataManagement:
         """
         Here We are plotting the graph using Seaborn Library
         :return: will return the plotted graphs.
+        Here we are plotting the graph by using seaborn library.
+        setting the figure size.
+        :return: will return the plotted graph.
         """
         instance = DataManagement()
         dataframe = instance.concat_csv()
+        plt.figure(figsize=(15, 15))
         gender_graph = sb.countplot('gender_full', data=dataframe)
         print(gender_graph)
         catplot_graph = sb.catplot(x='BUSINESS_UNIT', y='gender_full', data=dataframe)
@@ -67,6 +72,7 @@ class DataManagement:
         barplot_graph = sb.barplot(x='age', y='EmployeeID', data=dataframe)
         print(barplot_graph)
 
+        
     @staticmethod
     def variance_values():
         """
