@@ -69,7 +69,7 @@ class DataManagement:
         print(gender_graph)
         catplot_graph = sb.catplot(x='BUSINESS_UNIT', y='gender_full', data=dataframe)
         print(catplot_graph)
-        barplot_graph = sb.barplot(x='age', y='EmployeeID', data=dataframe)
+        barplot_graph = sb.barplot(x='age', y='length_of_service', data=dataframe)
         print(barplot_graph)
 
         
